@@ -1,0 +1,8 @@
+type: google.api.service
+config_version: 3
+
+http:
+  rules:
+    # - selector: bank.BankService.GetCurrentBalance
+    #   get: /bank/v1/account/current_balance
+    # - selector 
