@@ -3,15 +3,35 @@ info:
   title: pkg/proto/user/service.proto
   version: version not set
 tags:
-  - name: TestService
+  - name: UserService
 consumes:
   - application/json
 produces:
   - application/json
 paths:
-  /user.TestService/UserRegistration:
+  /user.UserService/Login:
     post:
-      operationId: TestService_UserRegistration
+      operationId: UserService_Login
+      responses:
+        "200":
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/userLoginResponse'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/rpcStatus'
+      parameters:
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/userLoginRequest'
+      tags:
+        - UserService
+  /user.UserService/UserRegistration:
+    post:
+      operationId: UserService_UserRegistration
       responses:
         "200":
           description: A successful response.
@@ -28,7 +48,7 @@ paths:
           schema:
             $ref: '#/definitions/userRegistrationRequest'
       tags:
-        - TestService
+        - UserService
 definitions:
   protobufAny:
     type: object
@@ -137,6 +157,32 @@ definitions:
     description: |-
       Represents a time zone from the
       [IANA Time Zone Database](https://www.iana.org/time-zones).
+  userLoginRequest:
+    type: object
+    properties:
+      input:
+        type: string
+      password:
+        type: string
+  userLoginResponse:
+    type: object
+    properties:
+      user_uuid:
+        type: string
+      username:
+        type: string
+      email:
+        type: string
+      phone_number:
+        type: string
+      token:
+        type: string
+      expires_at:
+        $ref: '#/definitions/typeDateTime'
+      created_at:
+        $ref: '#/definitions/typeDateTime'
+      updated_at:
+        $ref: '#/definitions/typeDateTime'
   userRegistrationRequest:
     type: object
     properties:
