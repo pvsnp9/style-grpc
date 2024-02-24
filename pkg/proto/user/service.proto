@@ -2,10 +2,13 @@ syntax ="proto3";
 package user;
 
 import "pkg/proto/user/type/registration_type.proto";
+import "pkg/proto/user/type/login_type.proto";
 
 option go_package = "github.com/pvsnp9/style-grpc/pkg/protogen/go/user";
 
 
-service TestService {
+service UserService {
     rpc UserRegistration(RegistrationRequest) returns (RegistrationResponse){}
+    rpc Login(LoginRequest) returns (LoginResponse){}
+
 }
