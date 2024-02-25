@@ -10,5 +10,6 @@ option go_package = "github.com/pvsnp9/style-grpc/pkg/protogen/go/user";
 service UserService {
     rpc UserRegistration(RegistrationRequest) returns (RegistrationResponse){}
     rpc Login(LoginRequest) returns (LoginResponse){}
+    rpc Logout(LogoutResquest) returns (LogoutResponse){}
 
 }
