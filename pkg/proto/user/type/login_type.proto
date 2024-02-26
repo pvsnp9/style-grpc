@@ -20,3 +20,19 @@ message LogoutResquest{
 message LogoutResponse{
     string message = 1;
 }
+
+message RenewTokenRequest {
+    string token =1;
+}
+
+message RenewTokenResponse {
+    string token = 1;
+}
+
+message PasswordResetRequest {
+    string destination = 1;
+}
+
+message PasswordResetResponse {
+    string message = 1;
+}

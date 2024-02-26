@@ -11,5 +11,7 @@ service UserService {
     rpc UserRegistration(RegistrationRequest) returns (RegistrationResponse){}
     rpc Login(LoginRequest) returns (LoginResponse){}
     rpc Logout(LogoutResquest) returns (LogoutResponse){}
+    rpc RenewToken(RenewTokenRequest) returns (RenewTokenResponse){}
+    rpc PasswordRest(PasswordResetRequest) returns (PasswordResetResponse){}
 
 }
