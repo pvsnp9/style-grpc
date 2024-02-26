@@ -232,6 +232,194 @@ func (x *LogoutResponse) GetMessage() string {
 	return ""
 }
 
+type RenewTokenRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Token string `protobuf:"bytes,1,opt,name=token,proto3" json:"token,omitempty"`
+}
+
+func (x *RenewTokenRequest) Reset() {
+	*x = RenewTokenRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_pkg_proto_user_type_login_type_proto_msgTypes[4]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *RenewTokenRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RenewTokenRequest) ProtoMessage() {}
+
+func (x *RenewTokenRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_pkg_proto_user_type_login_type_proto_msgTypes[4]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RenewTokenRequest.ProtoReflect.Descriptor instead.
+func (*RenewTokenRequest) Descriptor() ([]byte, []int) {
+	return file_pkg_proto_user_type_login_type_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *RenewTokenRequest) GetToken() string {
+	if x != nil {
+		return x.Token
+	}
+	return ""
+}
+
+type RenewTokenResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Token string `protobuf:"bytes,1,opt,name=token,proto3" json:"token,omitempty"`
+}
+
+func (x *RenewTokenResponse) Reset() {
+	*x = RenewTokenResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_pkg_proto_user_type_login_type_proto_msgTypes[5]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *RenewTokenResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RenewTokenResponse) ProtoMessage() {}
+
+func (x *RenewTokenResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_pkg_proto_user_type_login_type_proto_msgTypes[5]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RenewTokenResponse.ProtoReflect.Descriptor instead.
+func (*RenewTokenResponse) Descriptor() ([]byte, []int) {
+	return file_pkg_proto_user_type_login_type_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *RenewTokenResponse) GetToken() string {
+	if x != nil {
+		return x.Token
+	}
+	return ""
+}
+
+type PasswordResetRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Destination string `protobuf:"bytes,1,opt,name=destination,proto3" json:"destination,omitempty"`
+}
+
+func (x *PasswordResetRequest) Reset() {
+	*x = PasswordResetRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_pkg_proto_user_type_login_type_proto_msgTypes[6]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *PasswordResetRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PasswordResetRequest) ProtoMessage() {}
+
+func (x *PasswordResetRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_pkg_proto_user_type_login_type_proto_msgTypes[6]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PasswordResetRequest.ProtoReflect.Descriptor instead.
+func (*PasswordResetRequest) Descriptor() ([]byte, []int) {
+	return file_pkg_proto_user_type_login_type_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *PasswordResetRequest) GetDestination() string {
+	if x != nil {
+		return x.Destination
+	}
+	return ""
+}
+
+type PasswordResetResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Message string `protobuf:"bytes,1,opt,name=message,proto3" json:"message,omitempty"`
+}
+
+func (x *PasswordResetResponse) Reset() {
+	*x = PasswordResetResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_pkg_proto_user_type_login_type_proto_msgTypes[7]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *PasswordResetResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PasswordResetResponse) ProtoMessage() {}
+
+func (x *PasswordResetResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_pkg_proto_user_type_login_type_proto_msgTypes[7]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PasswordResetResponse.ProtoReflect.Descriptor instead.
+func (*PasswordResetResponse) Descriptor() ([]byte, []int) {
+	return file_pkg_proto_user_type_login_type_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *PasswordResetResponse) GetMessage() string {
+	if x != nil {
+		return x.Message
+	}
+	return ""
+}
+
 var File_pkg_proto_user_type_login_type_proto protoreflect.FileDescriptor
 
 var file_pkg_proto_user_type_login_type_proto_rawDesc = []byte{
@@ -253,10 +441,23 @@ var file_pkg_proto_user_type_login_type_proto_rawDesc = []byte{
 	0x74, 0x6f, 0x6b, 0x65, 0x6e, 0x22, 0x2a, 0x0a, 0x0e, 0x4c, 0x6f, 0x67, 0x6f, 0x75, 0x74, 0x52,
 	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x18, 0x0a, 0x07, 0x6d, 0x65, 0x73, 0x73, 0x61,
 	0x67, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67,
-	0x65, 0x42, 0x33, 0x5a, 0x31, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f,
-	0x70, 0x76, 0x73, 0x6e, 0x70, 0x39, 0x2f, 0x73, 0x74, 0x79, 0x6c, 0x65, 0x2d, 0x67, 0x72, 0x70,
-	0x63, 0x2f, 0x70, 0x6b, 0x67, 0x2f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x67, 0x65, 0x6e, 0x2f, 0x67,
-	0x6f, 0x2f, 0x75, 0x73, 0x65, 0x72, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x65, 0x22, 0x29, 0x0a, 0x11, 0x52, 0x65, 0x6e, 0x65, 0x77, 0x54, 0x6f, 0x6b, 0x65, 0x6e, 0x52,
+	0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x14, 0x0a, 0x05, 0x74, 0x6f, 0x6b, 0x65, 0x6e, 0x18,
+	0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x74, 0x6f, 0x6b, 0x65, 0x6e, 0x22, 0x2a, 0x0a, 0x12,
+	0x52, 0x65, 0x6e, 0x65, 0x77, 0x54, 0x6f, 0x6b, 0x65, 0x6e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
+	0x73, 0x65, 0x12, 0x14, 0x0a, 0x05, 0x74, 0x6f, 0x6b, 0x65, 0x6e, 0x18, 0x01, 0x20, 0x01, 0x28,
+	0x09, 0x52, 0x05, 0x74, 0x6f, 0x6b, 0x65, 0x6e, 0x22, 0x38, 0x0a, 0x14, 0x50, 0x61, 0x73, 0x73,
+	0x77, 0x6f, 0x72, 0x64, 0x52, 0x65, 0x73, 0x65, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
+	0x12, 0x20, 0x0a, 0x0b, 0x64, 0x65, 0x73, 0x74, 0x69, 0x6e, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x18,
+	0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0b, 0x64, 0x65, 0x73, 0x74, 0x69, 0x6e, 0x61, 0x74, 0x69,
+	0x6f, 0x6e, 0x22, 0x31, 0x0a, 0x15, 0x50, 0x61, 0x73, 0x73, 0x77, 0x6f, 0x72, 0x64, 0x52, 0x65,
+	0x73, 0x65, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x18, 0x0a, 0x07, 0x6d,
+	0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x6d, 0x65,
+	0x73, 0x73, 0x61, 0x67, 0x65, 0x42, 0x33, 0x5a, 0x31, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e,
+	0x63, 0x6f, 0x6d, 0x2f, 0x70, 0x76, 0x73, 0x6e, 0x70, 0x39, 0x2f, 0x73, 0x74, 0x79, 0x6c, 0x65,
+	0x2d, 0x67, 0x72, 0x70, 0x63, 0x2f, 0x70, 0x6b, 0x67, 0x2f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x67,
+	0x65, 0x6e, 0x2f, 0x67, 0x6f, 0x2f, 0x75, 0x73, 0x65, 0x72, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74,
+	0x6f, 0x33,
 }
 
 var (
@@ -271,12 +472,16 @@ func file_pkg_proto_user_type_login_type_proto_rawDescGZIP() []byte {
 	return file_pkg_proto_user_type_login_type_proto_rawDescData
 }
 
-var file_pkg_proto_user_type_login_type_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
+var file_pkg_proto_user_type_login_type_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
 var file_pkg_proto_user_type_login_type_proto_goTypes = []interface{}{
-	(*LoginRequest)(nil),   // 0: user.LoginRequest
-	(*LoginResponse)(nil),  // 1: user.LoginResponse
-	(*LogoutResquest)(nil), // 2: user.LogoutResquest
-	(*LogoutResponse)(nil), // 3: user.LogoutResponse
+	(*LoginRequest)(nil),          // 0: user.LoginRequest
+	(*LoginResponse)(nil),         // 1: user.LoginResponse
+	(*LogoutResquest)(nil),        // 2: user.LogoutResquest
+	(*LogoutResponse)(nil),        // 3: user.LogoutResponse
+	(*RenewTokenRequest)(nil),     // 4: user.RenewTokenRequest
+	(*RenewTokenResponse)(nil),    // 5: user.RenewTokenResponse
+	(*PasswordResetRequest)(nil),  // 6: user.PasswordResetRequest
+	(*PasswordResetResponse)(nil), // 7: user.PasswordResetResponse
 }
 var file_pkg_proto_user_type_login_type_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type
@@ -340,6 +545,54 @@ func file_pkg_proto_user_type_login_type_proto_init() {
 				return nil
 			}
 		}
+		file_pkg_proto_user_type_login_type_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*RenewTokenRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_pkg_proto_user_type_login_type_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*RenewTokenResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_pkg_proto_user_type_login_type_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*PasswordResetRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_pkg_proto_user_type_login_type_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*PasswordResetResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -347,7 +600,7 @@ func file_pkg_proto_user_type_login_type_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_pkg_proto_user_type_login_type_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   4,
+			NumMessages:   8,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
