@@ -4,14 +4,52 @@ package user;
 import "pkg/proto/user/type/registration_type.proto";
 import "pkg/proto/user/type/login_type.proto";
 
+import "pkg/proto/google/api/annotations.proto";
+import "pkg/proto/protoc-gen-openapiv2/options/annotations.proto";
+
 option go_package = "github.com/pvsnp9/style-grpc/pkg/protogen/go/user";
 
+option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
+    info: {
+        title: "Style Auth Service";
+        version: "1.0.0";
+    };
+    schemes: HTTP;
+    produces: "application/json"
+
+};
 
 service UserService {
-    rpc UserRegistration(RegistrationRequest) returns (RegistrationResponse){}
-    rpc Login(LoginRequest) returns (LoginResponse){}
-    rpc Logout(LogoutResquest) returns (LogoutResponse){}
-    rpc RenewToken(RenewTokenRequest) returns (RenewTokenResponse){}
-    rpc PasswordRest(PasswordResetRequest) returns (PasswordResetResponse){}
+    rpc UserRegistration(RegistrationRequest) returns (RegistrationResponse){
+        option (google.api.http) = {
+            post:"/api/auth/v1/user-registration"
+            body: "*"
+        };
+    }
+
+    rpc Login(LoginRequest) returns (LoginResponse){
+        option (google.api.http) = {
+            post:"/api/auth/v1/login"
+            body: "*"
+        };
+    }
+    rpc Logout(LogoutResquest) returns (LogoutResponse){
+        option (google.api.http) = {
+            post:"/api/auth/v1/logout"
+            body: "*"
+        };
+    }
+    rpc RenewToken(RenewTokenRequest) returns (RenewTokenResponse){
+        option (google.api.http) = {
+            post:"/api/auth/v1/renew-token"
+            body: "*"
+        };
+    }
+    rpc PasswordRest(PasswordResetRequest) returns (PasswordResetResponse){
+        option (google.api.http) = {
+            post:"/api/auth/v1/password-reset"
+            body: "*"
+        };
+    }
 
 }
