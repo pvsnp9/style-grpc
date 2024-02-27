@@ -1,15 +1,17 @@
 swagger: "2.0"
 info:
-  title: pkg/proto/user/service.proto
-  version: version not set
+  title: Style Auth Service
+  version: 1.0.0
 tags:
   - name: UserService
+schemes:
+  - http
 consumes:
   - application/json
 produces:
   - application/json
 paths:
-  /user.UserService/Login:
+  /api/auth/v1/login:
     post:
       operationId: UserService_Login
       responses:
@@ -29,7 +31,7 @@ paths:
             $ref: '#/definitions/userLoginRequest'
       tags:
         - UserService
-  /user.UserService/Logout:
+  /api/auth/v1/logout:
     post:
       operationId: UserService_Logout
       responses:
@@ -49,7 +51,7 @@ paths:
             $ref: '#/definitions/userLogoutResquest'
       tags:
         - UserService
-  /user.UserService/PasswordRest:
+  /api/auth/v1/password-reset:
     post:
       operationId: UserService_PasswordRest
       responses:
@@ -69,7 +71,7 @@ paths:
             $ref: '#/definitions/userPasswordResetRequest'
       tags:
         - UserService
-  /user.UserService/RenewToken:
+  /api/auth/v1/renew-token:
     post:
       operationId: UserService_RenewToken
       responses:
@@ -89,7 +91,7 @@ paths:
             $ref: '#/definitions/userRenewTokenRequest'
       tags:
         - UserService
-  /user.UserService/UserRegistration:
+  /api/auth/v1/user-registration:
     post:
       operationId: UserService_UserRegistration
       responses:
