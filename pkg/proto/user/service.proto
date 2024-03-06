@@ -45,9 +45,15 @@ service UserService {
             body: "*"
         };
     }
-    rpc PasswordRest(PasswordResetRequest) returns (PasswordResetResponse){
+    rpc PasswordReset(PasswordResetRequest) returns (PasswordResetResponse){
         option (google.api.http) = {
             post:"/api/auth/v1/password-reset"
+            body: "*"
+        };
+    }
+    rpc SendVerificationCode(CodeVerficationRequest) returns (CodeVerficationResponse){
+        option (google.api.http) = {
+            post:"/api/auth/v1/send-verfication-code"
             body: "*"
         };
     }

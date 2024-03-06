@@ -36,3 +36,11 @@ message PasswordResetRequest {
 message PasswordResetResponse {
     string message = 1;
 }
+
+message CodeVerficationRequest {
+    string destination = 1;
+}
+
+message CodeVerficationResponse {
+    string message = 1;
+}
