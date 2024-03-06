@@ -19,11 +19,12 @@ import (
 const _ = grpc.SupportPackageIsVersion7
 
 const (
-	UserService_UserRegistration_FullMethodName = "/user.UserService/UserRegistration"
-	UserService_Login_FullMethodName            = "/user.UserService/Login"
-	UserService_Logout_FullMethodName           = "/user.UserService/Logout"
-	UserService_RenewToken_FullMethodName       = "/user.UserService/RenewToken"
-	UserService_PasswordRest_FullMethodName     = "/user.UserService/PasswordRest"
+	UserService_UserRegistration_FullMethodName     = "/user.UserService/UserRegistration"
+	UserService_Login_FullMethodName                = "/user.UserService/Login"
+	UserService_Logout_FullMethodName               = "/user.UserService/Logout"
+	UserService_RenewToken_FullMethodName           = "/user.UserService/RenewToken"
+	UserService_PasswordReset_FullMethodName        = "/user.UserService/PasswordReset"
+	UserService_SendVerificationCode_FullMethodName = "/user.UserService/SendVerificationCode"
 )
 
 // UserServiceClient is the client API for UserService service.
@@ -34,7 +35,8 @@ type UserServiceClient interface {
 	Login(ctx context.Context, in *LoginRequest, opts ...grpc.CallOption) (*LoginResponse, error)
 	Logout(ctx context.Context, in *LogoutResquest, opts ...grpc.CallOption) (*LogoutResponse, error)
 	RenewToken(ctx context.Context, in *RenewTokenRequest, opts ...grpc.CallOption) (*RenewTokenResponse, error)
-	PasswordRest(ctx context.Context, in *PasswordResetRequest, opts ...grpc.CallOption) (*PasswordResetResponse, error)
+	PasswordReset(ctx context.Context, in *PasswordResetRequest, opts ...grpc.CallOption) (*PasswordResetResponse, error)
+	SendVerificationCode(ctx context.Context, in *CodeVerficationRequest, opts ...grpc.CallOption) (*CodeVerficationResponse, error)
 }
 
 type userServiceClient struct {
@@ -81,9 +83,18 @@ func (c *userServiceClient) RenewToken(ctx context.Context, in *RenewTokenReques
 	return out, nil
 }
 
-func (c *userServiceClient) PasswordRest(ctx context.Context, in *PasswordResetRequest, opts ...grpc.CallOption) (*PasswordResetResponse, error) {
+func (c *userServiceClient) PasswordReset(ctx context.Context, in *PasswordResetRequest, opts ...grpc.CallOption) (*PasswordResetResponse, error) {
 	out := new(PasswordResetResponse)
-	err := c.cc.Invoke(ctx, UserService_PasswordRest_FullMethodName, in, out, opts...)
+	err := c.cc.Invoke(ctx, UserService_PasswordReset_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *userServiceClient) SendVerificationCode(ctx context.Context, in *CodeVerficationRequest, opts ...grpc.CallOption) (*CodeVerficationResponse, error) {
+	out := new(CodeVerficationResponse)
+	err := c.cc.Invoke(ctx, UserService_SendVerificationCode_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -98,7 +109,8 @@ type UserServiceServer interface {
 	Login(context.Context, *LoginRequest) (*LoginResponse, error)
 	Logout(context.Context, *LogoutResquest) (*LogoutResponse, error)
 	RenewToken(context.Context, *RenewTokenRequest) (*RenewTokenResponse, error)
-	PasswordRest(context.Context, *PasswordResetRequest) (*PasswordResetResponse, error)
+	PasswordReset(context.Context, *PasswordResetRequest) (*PasswordResetResponse, error)
+	SendVerificationCode(context.Context, *CodeVerficationRequest) (*CodeVerficationResponse, error)
 	mustEmbedUnimplementedUserServiceServer()
 }
 
@@ -118,8 +130,11 @@ func (UnimplementedUserServiceServer) Logout(context.Context, *LogoutResquest) (
 func (UnimplementedUserServiceServer) RenewToken(context.Context, *RenewTokenRequest) (*RenewTokenResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RenewToken not implemented")
 }
-func (UnimplementedUserServiceServer) PasswordRest(context.Context, *PasswordResetRequest) (*PasswordResetResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method PasswordRest not implemented")
+func (UnimplementedUserServiceServer) PasswordReset(context.Context, *PasswordResetRequest) (*PasswordResetResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method PasswordReset not implemented")
+}
+func (UnimplementedUserServiceServer) SendVerificationCode(context.Context, *CodeVerficationRequest) (*CodeVerficationResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SendVerificationCode not implemented")
 }
 func (UnimplementedUserServiceServer) mustEmbedUnimplementedUserServiceServer() {}
 
@@ -206,20 +221,38 @@ func _UserService_RenewToken_Handler(srv interface{}, ctx context.Context, dec f
 	return interceptor(ctx, in, info, handler)
 }
 
-func _UserService_PasswordRest_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _UserService_PasswordReset_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(PasswordResetRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(UserServiceServer).PasswordRest(ctx, in)
+		return srv.(UserServiceServer).PasswordReset(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: UserService_PasswordRest_FullMethodName,
+		FullMethod: UserService_PasswordReset_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UserServiceServer).PasswordRest(ctx, req.(*PasswordResetRequest))
+		return srv.(UserServiceServer).PasswordReset(ctx, req.(*PasswordResetRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _UserService_SendVerificationCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CodeVerficationRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UserServiceServer).SendVerificationCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: UserService_SendVerificationCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UserServiceServer).SendVerificationCode(ctx, req.(*CodeVerficationRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -248,8 +281,12 @@ var UserService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _UserService_RenewToken_Handler,
 		},
 		{
-			MethodName: "PasswordRest",
-			Handler:    _UserService_PasswordRest_Handler,
+			MethodName: "PasswordReset",
+			Handler:    _UserService_PasswordReset_Handler,
+		},
+		{
+			MethodName: "SendVerificationCode",
+			Handler:    _UserService_SendVerificationCode_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

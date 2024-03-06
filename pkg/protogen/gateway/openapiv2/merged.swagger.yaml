@@ -53,7 +53,7 @@ paths:
         - UserService
   /api/auth/v1/password-reset:
     post:
-      operationId: UserService_PasswordRest
+      operationId: UserService_PasswordReset
       responses:
         "200":
           description: A successful response.
@@ -89,6 +89,26 @@ paths:
           required: true
           schema:
             $ref: '#/definitions/userRenewTokenRequest'
+      tags:
+        - UserService
+  /api/auth/v1/send-verfication-code:
+    post:
+      operationId: UserService_SendVerificationCode
+      responses:
+        "200":
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/userCodeVerficationResponse'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/rpcStatus'
+      parameters:
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/userCodeVerficationRequest'
       tags:
         - UserService
   /api/auth/v1/user-registration:
@@ -131,6 +151,16 @@ definitions:
         items:
           type: object
           $ref: '#/definitions/protobufAny'
+  userCodeVerficationRequest:
+    type: object
+    properties:
+      destination:
+        type: string
+  userCodeVerficationResponse:
+    type: object
+    properties:
+      message:
+        type: string
   userLoginRequest:
     type: object
     properties:
